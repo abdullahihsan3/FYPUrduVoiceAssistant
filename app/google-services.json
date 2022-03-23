@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "648871599323",
+    "project_id": "fypurduvoiceassistant",
+    "storage_bucket": "fypurduvoiceassistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648871599323:android:1f7addbd8aaa02a17780fe",
+        "android_client_info": {
+          "package_name": "com.code.fypurduvoiceassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648871599323-iehsajoqfgglku6vlqca2bdbquodk3tv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPY32q_2nMzUr6AOjLwMe9GMWe-Cpm-SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648871599323-iehsajoqfgglku6vlqca2bdbquodk3tv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

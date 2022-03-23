@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.code.fypurduvoiceassistant">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FYPUrduVoiceAssistant">
+        <activity
+            android:name=".RecyclerViewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Youtube"
+            android:exported="false" />
+        <activity
+            android:name=".Bluetooth"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="false" />
+        <activity
+            android:name=".WifiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Weather"
+            android:exported="false" />
+        <activity
+            android:name=".Time"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Sound"
+            android:exported="false" />
+        <activity
+            android:name=".Screenshot"
+            android:exported="false" />
+        <activity
+            android:name=".Reminder"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Music"
+            android:exported="false" />
+        <activity
+            android:name=".MobileData"
+            android:exported="false" />
+        <activity
+            android:name=".Map"
+            android:exported="false" />
+        <activity
+            android:name=".MainScreenMessage"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Flashlight"
+            android:exported="false" />
+        <activity
+            android:name=".Facebook"
+            android:exported="false" />
+        <activity
+            android:name=".Email"
+            android:exported="false" />
+        <activity
+            android:name=".Date"
+            android:exported="false" />
+        <activity
+            android:name=".Calculation"
+            android:exported="false" />
+        <activity
+            android:name=".Browser"
+            android:exported="false" />
+        <activity
+            android:name=".Brightness"
+            android:exported="false" />
+        <activity
+            android:name=".Alarm"
+            android:exported="false" />
+        <activity
+            android:name=".AirplaneMode"
+            android:exported="false">
+
+        </activity>
+    </application>
+
+</manifest>
