@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "urdu-assistant",
+  "private_key_id": "6f2d9f7b0ad8dbaa96431e6f959f18d1c3cfc98c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCgGdxzoh+gB4Qc\nLu6aI3Nz9iZ3Au58wTUTrGoSkLJNKtBIAYnxbkUkF0Swtwqx20ib1vWBz7MD3laN\nMAsYh/RfDFqBQQI6SlqooAvAXHiamJ48eYZKfAWetlmzbx2+RUikQojAJ6QA19FE\njWfshoYwiibuq/p+Jf6DvBZ/oWDtKirIP03sUrbuUcrO2MLKqnG8PFYYZhEWtoI+\njzpdr0jh5TsjYl4Tdc2qsOuP5r/mQGCgPWVQ4JcNglnMoqlqp5OvBqh6NDcEn8o3\nlYOvs5is3xT/0OjBqiuPtM6Di6nGF/YQl0Hny9dc/YGtB9RK6w4+Y2UlWtEmgdsL\n19V9/as3AgMBAAECggEAM09GdyqovwVZohyqbGzbJfln53FhlErpY0Y48n08H34O\npV0U4/LGpuPsKERpYYnZEdTI9tLlWOKLU5FnpPOBbmrLoKwAdkT5HBy612nrXwR1\nhgUedEWeGXjwc5CzdBTJTJdkM00hAwInt7Qn78ZHQEwuYQRt8brkgDyp6zqBkVAV\nfjoabn2k4M4q1gjQ0J3GsJpbE2mvLPEN4/oDtLNSee2MFwkX8SabL24zhwef9Plv\nrJdhklAXUH4GykO1JohzaOWDHlgflJVN65IUDWKaai9pjR+tvcS9uQJW4P3XSapK\nerQS0XmHWhjA3VKwb/atZOhjczBAnuZon14vsghAeQKBgQDdh3rcaYAQTubBZ9pe\n9eTj2bqSA/4o84JsOPdJJkEd6EH21+1+zHfSvXXRjbW6FxM3QV27hkO2lE/kl7m2\nehiBHRcSd1KcdLMkuhZSpWiUV3h68RckmtC9uDnBaPM/rElr52L0sXqRAVAyn5aZ\neSK5vOmFYTjUB7NJjrURCtObrwKBgQC5A2pnyiLzL2ASTbNqIiYgKneIFC1e5nKF\n/An4EeVLquf9uP95LYYVnnI2UDt0xxvlFaH1Dw+l1XQQlmfFUk2JNUlPn+65vNvH\nEJfVySf1lQIfmxpvNgxs9grdL+RZ5W0OA/+ZN/7JGh7CYn4cGkvZ62DGEmw7G+Ge\nWz+IBeIi+QKBgQCCjdhzU12cvtMxgiHouuOVAHj6mo3L1o6zdvMNUhUoKfvOHL0j\ncB7hvLRVtj02GWlCtCwoWt1HGarn3h8dkmEknl89i8LM392/tEd5l2/FlLM1SSZJ\ndU+1r3+iI1bP3Jo8lFX2PS4tjOeVngWkFwbHDbVV3NEf7BXWMNs22vmQkwKBgFRB\nn/XAcoY5bxEm3axZ/O7tKB6KwdbUMBegnpGg5MG/BYPg+kefWc8Cp5TgmRMnkiaT\n4XwO7dtiCEd9l6ifQLxZzhc7CKcBwT0460zrHQ2UXLE0G6fF/4anzm7I3r+p4i5d\n18tZWukOwi9YV4JI335Q2XOa9Ds/CVLqz1YNB91RAoGBAMnwjGTaGGGid3MKKwOp\ndfw5O+tQ0uMiygbBtELvkgbzrPCmhV5OUantxKkBtOgKhCcQN/0cQnZKx+CQiCrX\nuqxg9EcJoYnA6xRat4492DGsRVTPPo+Hou0q3uGf6dZ2FBF4+/4AAmUo3Xb1q1Wv\nHIXFdJaYFSW3T05GFuJ+oL4S\n-----END PRIVATE KEY-----\n",
+  "client_email": "urdu-assistant@urdu-assistant.iam.gserviceaccount.com",
+  "client_id": "115449762021940949236",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/urdu-assistant%40urdu-assistant.iam.gserviceaccount.com"
+}
