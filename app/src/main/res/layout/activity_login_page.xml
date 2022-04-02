@@ -36,11 +36,11 @@
         android:layout_height="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="300dp"
+        android:background="@drawable/rounded_chat"
         android:hint="Enter UserName...."
+        android:paddingLeft="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
         android:textSize="15dp"
         android:textStyle="bold"></EditText>
 
@@ -82,7 +82,6 @@
         android:backgroundTint="#78039c"
         android:text="Login"
         android:textColor="#ffffff"></Button>
-
 
 
     <Button

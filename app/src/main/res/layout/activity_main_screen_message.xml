@@ -102,6 +102,7 @@
         android:src="@drawable/ic_baseline_send_24"></ImageView>
 
     <ImageView
+        android:id="@+id/mic_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="180dp"
@@ -109,7 +110,7 @@
         android:src="@drawable/ic_baseline_mic_24"></ImageView>
 
     <ImageButton
-        android:id="@+id/keyboard"
+        android:id="@+id/stop_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="270dp"
@@ -117,7 +118,7 @@
         android:backgroundTint="@color/cardview_shadow_end_color"
         android:scaleX="2"
         android:scaleY="2"
-        android:src="@drawable/ic_baseline_keyboard_24"></ImageButton>
+        android:src="@drawable/ic_baseline_stop_24"></ImageButton>
 
 
 </RelativeLayout>
