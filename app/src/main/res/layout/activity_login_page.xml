@@ -1,107 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#FFFFFF"
     tools:context=".LoginPage">
 
-
     <ImageView
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/imageview_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/logo"></ImageView>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo">
+
+    </ImageView>
 
     <TextView
-        android:layout_width="286dp"
+        android:id="@+id/welcometext"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="125dp"
+        android:layout_below="@+id/imageview_logo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="Already Have An Account?"
-        android:textAlignment="textStart"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold"></TextView>
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/rounded_chat"
-        android:hint="Enter UserName...."
-        android:paddingLeft="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="15dp"
-        android:textStyle="bold"></EditText>
-
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="370dp"
-        android:hint="Enter Password...."
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
-        android:textSize="15dp"
-        android:textStyle="bold"></EditText>
-
-    <TextView
-        android:id="@+id/forgotpassword"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="380dp"
-        android:clickable="true"
-        android:text="Forgot?"
+        android:text="Welcome To Urdu Voice Assistant Login Portal"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textStyle="bold"></TextView>
+        android:textAllCaps="true"
+        android:textColor="#78039c"
+        android:textSize="35sp"
+        android:textStyle="bold" />
 
 
-    <Button
-        android:id="@+id/loginbutton"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="430dp"
-        android:backgroundTint="#78039c"
-        android:text="Login"
-        android:textColor="#ffffff"></Button>
-
-
-    <Button
-        android:id="@+id/registrationintent"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="#78039c"
-        android:text="Signup"
-        android:textColor="#ffffff"></Button>
-
-
-    <FrameLayout
-        android:id="@+id/FrameLayout1"
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="598dp"
+        android:layout_below="@+id/welcometext"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-35dp"
+        android:background="@drawable/draw_background">
+
+        <ImageView
+            android:id="@+id/woman"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="274dp"
+            android:src="@drawable/woman_working">
 
 
-    </FrameLayout>
+        </ImageView>
+
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/woman"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-250dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Email...."
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Password...."
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/black"
+
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:id="@+id/forgotpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="5dp"
+            android:text="Forgot Password?"
+            android:textColor="#78039c"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/loginbutton"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/forgotpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_btn"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registrationintent"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/loginbutton"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+
+            android:background="@drawable/login_btn"
+            android:text="Signup"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

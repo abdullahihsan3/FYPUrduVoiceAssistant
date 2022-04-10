@@ -1,104 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="#FFFFFF"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/imageview_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/logo">
+
+    </ImageView>
 
     <TextView
-        android:layout_width="286dp"
+        android:id="@+id/welcometext"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="35dp"
+        android:layout_below="@+id/imageview_logo"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="Heres Your First Step With Us..."
-        android:textAlignment="textStart"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:textSize="40dp"
-        android:textStyle="bold"></TextView>
-
-    <EditText
-        android:id="@+id/getfirstname"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
-        android:hint="Enter Firstname...."
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="14dp"
-        android:textStyle="bold"></EditText>
-
-
-    <EditText
-        android:id="@+id/getlastname"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="280dp"
-        android:hint="Enter Lastname...."
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
-        android:textSize="14dp"
-        android:textStyle="bold"></EditText>
-
-
-    <EditText
-        android:id="@+id/getemail"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="360dp"
-        android:hint="Enter Email...."
-        android:inputType="text"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
-        android:textSize="14dp"
-        android:textStyle="bold"></EditText>
-
-    <EditText
-        android:id="@+id/getpassword"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="440dp"
-        android:hint="Enter Password...."
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:background="@drawable/rounded_chat"
-        android:paddingLeft="20dp"
-        android:textSize="14dp"
-        android:textStyle="bold"></EditText>
-
-
-    <Button
-        android:id="@+id/getregistrationbutton"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="#78039c"
-        android:text="Register With Us"
-        android:textColor="@color/white"
+        android:text="Heres Your First Step With Us...."
+        android:textColor="#540000"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/welcometext"
+        android:layout_marginTop="-19dp"
+        android:background="@drawable/draw_background">
 
 
+        <ImageView
+            android:id="@+id/woman"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="274dp"
+            android:src="@drawable/woman_working">
 
+        </ImageView>
+
+        <EditText
+            android:id="@+id/getfirstname"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/woman"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-270dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="First Name...."
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/getlastname"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/getfirstname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Last name...."
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/getemail"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/getlastname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Email...."
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/getlastname"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintWidth_percent=".8" />
+
+        <EditText
+            android:id="@+id/getpassword"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/getemail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="Password...."
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+
+            android:paddingBottom="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/getregistrationbutton"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/getpassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_btn"
+            android:padding="10dp"
+            android:text="Signup"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 </RelativeLayout>

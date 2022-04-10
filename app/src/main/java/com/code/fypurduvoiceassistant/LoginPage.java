@@ -13,8 +13,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,12 +45,22 @@ public class LoginPage extends AppCompatActivity {
     TextView registrationintent;
     TextView forgotpassword;
     private FirebaseAnalytics mFirebaseAnalytics;
+    private void animatelogo(){
 
+        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(30000);
+        rotate.setRepeatCount(Animation.INFINITE);
+        rotate.setInterpolator(new LinearInterpolator());
+        ImageView image= (ImageView) findViewById(R.id.imageview_logo);
+        image.startAnimation(rotate);
+
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
-
+        animatelogo();
         forgotpassword=findViewById(R.id.forgotpassword);
         mAuth = FirebaseAuth.getInstance();
         username=findViewById(R.id.username);
@@ -78,15 +92,20 @@ public class LoginPage extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Bundle bundle = new Bundle();
-                                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, username.getText().toString());
-                               // bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
-                                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+                                if(mAuth.getCurrentUser().isEmailVerified()) {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, username.getText().toString());
+                                    // bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+                                    mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
-                                Log.d(TAG, "createUserWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Intent intent = new Intent(LoginPage.this, MainScreenMessage.class);
-                                startActivity(intent);
+                                    Log.d(TAG, "createUserWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Intent intent = new Intent(LoginPage.this, MainScreenMessage.class);
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Toast.makeText(LoginPage.this,"Please Verify Email First",Toast.LENGTH_LONG).show();
+                                }
                             } else {
                                 Toast.makeText(LoginPage.this, "Credentials Not Correct", Toast.LENGTH_LONG).show();
                             }

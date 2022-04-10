@@ -15,8 +15,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -24,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
+    private static final String TAG = "Register1212";
     Button register;
     EditText firstname;
     EditText lastname;
@@ -74,9 +77,22 @@ public class RegisterActivity extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(RegisterActivity.this,"New User Created...",Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(RegisterActivity.this,LoginPage.class);
-                        startActivity(intent);
+                        FirebaseUser user=mAuth.getCurrentUser();
+                        user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(RegisterActivity.this,"Email Sent To User's Email",Toast.LENGTH_LONG).show();
+                                Intent intent=new Intent(RegisterActivity.this,LoginPage.class);
+                                startActivity(intent);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RegisterActivity.this,"Unable To Send Email",Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -84,6 +100,10 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this,"System Error",Toast.LENGTH_LONG).show();
                     }
                 });
+
+
+
+
 
 
             }

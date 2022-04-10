@@ -3,6 +3,7 @@ package com.code.fypurduvoiceassistant;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -12,6 +13,8 @@ import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.code.fypurduvoiceassistant.LoginPage;
+import com.code.fypurduvoiceassistant.MainScreenMessage;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -20,8 +23,7 @@ public class SplashScreen extends AppCompatActivity {
     private ImageView imageView;
     ImageView people;
     ImageView limage;
-    TextView lname;
-    ImageView compname;
+    ImageView lname;
     FirebaseAuth mAuth;
     Animation top,bottom,mid;
 
@@ -29,11 +31,25 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        top= AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        mid= AnimationUtils.loadAnimation(this,R.anim.middle_animation);
+        bottom= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
+        people = findViewById(R.id.people);
+        limage = findViewById(R.id.logo_image);
+        lname = findViewById(R.id.lname);
+
+        //set animations
+
+
+        people.setAnimation(top);
+        limage.setAnimation(mid);
+        lname.setAnimation(bottom);
 
         getWindow().setBackgroundDrawable(null);
         initializeview();
 
-        //animatelogo();
+        animatelogo();
         gotoMainActivity();
 
 
@@ -50,7 +66,7 @@ public class SplashScreen extends AppCompatActivity {
         rotate.setDuration(30000);
         rotate.setRepeatCount(Animation.INFINITE);
         rotate.setInterpolator(new LinearInterpolator());
-        ImageView image= (ImageView) findViewById(R.id.logo);
+        ImageView image= (ImageView) findViewById(R.id.people);
         image.startAnimation(rotate);
 
 
@@ -63,7 +79,7 @@ public class SplashScreen extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent newi=new Intent(SplashScreen.this,LoginPage.class);
+                    Intent newi=new Intent(SplashScreen.this, LoginPage.class);
                     startActivity(newi);
                     finish();
                 }
@@ -73,7 +89,7 @@ public class SplashScreen extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent=new Intent(SplashScreen.this,MainScreenMessage.class);
+                    Intent intent=new Intent(SplashScreen.this, MainScreenMessage.class);
                     startActivity(intent);
                     finish();
                 }
@@ -85,7 +101,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void initializeview(){
-        imageView=findViewById(R.id.logo);
+        imageView=findViewById(R.id.logo_image);
 
     }
 
