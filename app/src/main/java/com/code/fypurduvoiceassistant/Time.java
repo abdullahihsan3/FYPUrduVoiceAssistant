@@ -15,15 +15,12 @@ import java.util.Locale;
 public class Time extends AppCompatActivity {
     TextView timesettings;
     TextView Time_view;
-    TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
         timesettings=findViewById(R.id.timesettings);
-        Time_view=findViewById(R.id.Time);
-        textView=findViewById(R.id.text_to_view);
-        textView.setText("Displaying Time...");
+        Time_view=findViewById(R.id.Time_view);
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
         Time_view.setText("The Time Is:- "+currentTime);
 

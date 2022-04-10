@@ -224,8 +224,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
             else if(getLayoutPosition()==17){
 
-                db("Brightness");
-                Intent send_intent=new Intent(v.getContext(),Brightness.class);
+                db("Weather");
+                Intent send_intent=new Intent(v.getContext(),Weather.class);
                 c.startActivity(send_intent);
             }
 

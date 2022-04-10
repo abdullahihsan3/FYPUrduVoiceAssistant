@@ -24,7 +24,7 @@ public class WifiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi);
 
-        text_to_view=findViewById(R.id.text_to_view1);
+        text_to_view=findViewById(R.id.text_to_view);
         text_to_view.setText("Toggle Wifi Settings");
         wifisettings=findViewById(R.id.wifisettings);
         LabeledSwitch labeledSwitch = findViewById(R.id.switch4);

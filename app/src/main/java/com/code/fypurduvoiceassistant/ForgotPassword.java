@@ -37,6 +37,7 @@ public class ForgotPassword extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "Email sent.");
                                     Toast.makeText(ForgotPassword.this, "Resent Instructions Sent To Registered Email", Toast.LENGTH_LONG).show();
+                                    email_for_password.setText("");
                                 }
                             }
                         });

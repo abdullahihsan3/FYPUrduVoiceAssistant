@@ -23,7 +23,7 @@ public class Date extends AppCompatActivity {
         textView=findViewById(R.id.text_to_view);
         date_settings=findViewById(R.id.date_settings);
         textView.setText("Getting Date");
-        date_to_view=findViewById(R.id.date_to_view);
+        date_to_view=findViewById(R.id.text_to_view);
 
         LocalDate myObj = LocalDate.now();
         date_to_view.setText("The Date Is "+myObj.toString());

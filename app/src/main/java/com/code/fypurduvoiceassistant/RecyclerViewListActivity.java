@@ -42,7 +42,7 @@ public class RecyclerViewListActivity extends AppCompatActivity {
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.gmail),"Email","Go To Gmail","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.dateicon),"Date","Get The Current Date","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.music),"Music","Open Music Application","-"));
-        ls.add(new ImageClass(getResources().getDrawable(R.drawable.weather),"Brightness","Change Brightness","-"));
+        ls.add(new ImageClass(getResources().getDrawable(R.drawable.weather),"Weather","Check Weather","-"));
 
 
 
