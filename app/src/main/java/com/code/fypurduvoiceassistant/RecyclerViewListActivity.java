@@ -43,6 +43,8 @@ public class RecyclerViewListActivity extends AppCompatActivity {
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.dateicon),"Date","Get The Current Date","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.music),"Music","Open Music Application","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.weather),"Weather","Check Weather","-"));
+        ls.add(new ImageClass(getResources().getDrawable(R.drawable.calculatoricon),"Calculation","Perform Calculation","-"));
+
 
 
 

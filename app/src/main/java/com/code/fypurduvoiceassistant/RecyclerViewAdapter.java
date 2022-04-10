@@ -228,6 +228,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent send_intent=new Intent(v.getContext(),Weather.class);
                 c.startActivity(send_intent);
             }
+            else if(getLayoutPosition()==18){
+
+                db("Calculation");
+                Intent send_intent=new Intent(v.getContext(),Calculation.class);
+                c.startActivity(send_intent);
+            }
+
 
 
 
