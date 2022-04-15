@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#f91111"
     tools:context=".RegisterActivity">
 
     <ImageView
@@ -28,8 +28,8 @@
         android:layout_marginBottom="36dp"
         android:fontFamily="sans-serif-black"
         android:text="Heres Your First Step With Us...."
-        android:textColor="#540000"
-        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -38,7 +38,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/welcometext"
         android:layout_marginTop="-19dp"
-        android:background="@drawable/draw_background">
+        android:background="@color/white"
+        >
 
 
         <ImageView

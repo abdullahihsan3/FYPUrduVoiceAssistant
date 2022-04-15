@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/draw_background"
-    tools:context=".Email">
+    android:background="@color/black"
+    tools:context=".MainScreenMessage">
+
+
 
     <Button
         android:id="@+id/logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="650dp"
-        android:backgroundTint="#78039c"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="#f91111"
         android:text="Logout"
         android:textAlignment="center"
         android:textAllCaps="true"></Button>
@@ -30,7 +33,7 @@
     <Button
         android:id="@+id/button_to_command_list"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="200dp"
         android:backgroundTint="@color/white"
@@ -43,13 +46,6 @@
 
         ></Button>
 
-    <ImageView
-        android:layout_width="380dp"
-        android:layout_height="150dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="300dp"
-        android:src="@drawable/rounded"></ImageView>
-
 
     <TextView
         android:layout_width="205dp"
@@ -58,7 +54,7 @@
         android:layout_marginTop="340dp"
         android:text="ہیلو میں تمہاری کیا مدد کر سکتا ہوں؟"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="25dp"
         android:textStyle="bold"></TextView>
 
@@ -70,56 +66,36 @@
         android:layout_marginTop="330dp"
         android:src="@drawable/tick" />
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="570dp"
-        android:src="@drawable/rounded"></ImageView>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="420dp"
         android:layout_marginBottom="209dp"
         android:paddingLeft="5dp"
-        android:src="@drawable/rounded"></ImageView>
+        android:src="@drawable/waves"></ImageView>
 
-    <EditText
-        android:id="@+id/keyboard_text_to_view"
-        android:layout_width="257dp"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="224dp"></EditText>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="575dp"
-        android:src="@drawable/ic_baseline_send_24"></ImageView>
 
     <ImageView
         android:id="@+id/mic_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="575dp"
-        android:src="@drawable/ic_baseline_mic_24"></ImageView>
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="505dp"
+        android:src="@drawable/mic"></ImageView>
 
-    <ImageButton
+    <Button
         android:id="@+id/stop_button"
-        android:layout_width="50dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="575dp"
-        android:backgroundTint="@color/cardview_shadow_end_color"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:src="@drawable/ic_baseline_stop_24"></ImageButton>
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="680dp"
+        android:backgroundTint="#f91111"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_stop_24"
+        android:text="STOP RECORDING"
+        android:textAlignment="center"></Button>
 
 
 </RelativeLayout>

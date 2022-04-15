@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.AudioFormat;
+import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
@@ -118,7 +119,7 @@ public class MainScreenMessage extends AppCompatActivity  {
     Button button_to_command_list;
     Button logout;
     ImageView mic_button;
-    ImageView stop_button;
+    Button stop_button;
     MediaRecorder mediaRecorder;
     String filename;
     MessageSender messageSender;
@@ -154,11 +155,11 @@ public class MainScreenMessage extends AppCompatActivity  {
             try {
 
                 mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-                mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
-                mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-                mediaRecorder.setAudioSamplingRate(22050);
+                mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.WEBM);
+                mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.OPUS);
+                mediaRecorder.setAudioSamplingRate(8000);
                 mFileName=Environment.getExternalStorageDirectory() + File.separator
-                        + Environment.DIRECTORY_DCIM + File.separator + UUID.randomUUID();
+                        + Environment.DIRECTORY_DCIM + File.separator + UUID.randomUUID()+".wav";
                 mediaRecorder.setOutputFile(mFileName);
                 mediaRecorder.prepare();
                 mediaRecorder.start();
@@ -185,7 +186,7 @@ public class MainScreenMessage extends AppCompatActivity  {
 
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        final StorageReference ref = storageReference.child("audio/" + currentTime);
+        final StorageReference ref = storageReference.child("audio/" + UUID.randomUUID()+".wav");
         Uri file = Uri.fromFile(new File(filename));
         ref.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -195,8 +196,8 @@ public class MainScreenMessage extends AppCompatActivity  {
                     public void onSuccess(Uri uri) {
                         final Uri downloadUrl = uri;
                         Toast.makeText(MainScreenMessage.this, "Download URL at " + downloadUrl.toString(), Toast.LENGTH_LONG).show();
-                                messageSender=new MessageSender();
-                                messageSender.doInBackground(filename);
+                               // messageSender=new MessageSender();
+                                //messageSender.doInBackground(filename);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

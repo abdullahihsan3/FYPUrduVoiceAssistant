@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#f91111"
     tools:context=".LoginPage">
 
     <ImageView
@@ -26,10 +26,11 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="36dp"
         android:fontFamily="sans-serif-black"
-        android:text="Welcome To Urdu Voice Assistant Login Portal"
+        android:text="Urdu Voice Assistant Login Portal"
+        android:padding="10dp"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="#78039c"
+        android:textColor="@color/white"
         android:textSize="35sp"
         android:textStyle="bold" />
 
@@ -37,12 +38,12 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="598dp"
+        android:layout_height="590dp"
         android:layout_below="@+id/welcometext"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="-35dp"
-        android:background="@drawable/draw_background">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/woman"
@@ -100,7 +101,7 @@
             android:layout_marginEnd="50dp"
             android:layout_marginRight="5dp"
             android:text="Forgot Password?"
-            android:textColor="#78039c"
+            android:textColor="#f91111"
             android:textSize="18dp"
             android:textStyle="bold" />
 

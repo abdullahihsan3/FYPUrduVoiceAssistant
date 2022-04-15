@@ -234,6 +234,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent send_intent=new Intent(v.getContext(),Calculation.class);
                 c.startActivity(send_intent);
             }
+            else if(getLayoutPosition()==19){
+
+                db("CallContact");
+                Intent send_intent=new Intent(v.getContext(),CallContact.class);
+                c.startActivity(send_intent);
+            }
 
 
 
