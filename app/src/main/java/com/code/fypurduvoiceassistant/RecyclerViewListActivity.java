@@ -45,6 +45,8 @@ public class RecyclerViewListActivity extends AppCompatActivity {
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.weather),"Weather","Check Weather","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.calculatoricon),"Calculation","Perform Calculation","-"));
         ls.add(new ImageClass(getResources().getDrawable(R.drawable.call),"CallContact","Perform Call","-"));
+        ls.add(new ImageClass(getResources().getDrawable(R.drawable.ic_baseline_person_add_24),"Profile","Show Profile","-"));
+
 
 
 

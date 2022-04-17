@@ -31,6 +31,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        getSupportActionBar().hide();
         top= AnimationUtils.loadAnimation(this,R.anim.top_animation);
         mid= AnimationUtils.loadAnimation(this,R.anim.middle_animation);
         bottom= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);

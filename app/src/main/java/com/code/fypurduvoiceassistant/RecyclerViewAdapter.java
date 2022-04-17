@@ -240,6 +240,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent send_intent=new Intent(v.getContext(),CallContact.class);
                 c.startActivity(send_intent);
             }
+            else if(getLayoutPosition()==20){
+
+                db("Profile");
+                Intent send_intent=new Intent(v.getContext(),ProfilePicActivity.class);
+                c.startActivity(send_intent);
+            }
 
 
 

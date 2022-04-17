@@ -1,20 +1,18 @@
 package com.code.fypurduvoiceassistant;
 
-import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -22,44 +20,35 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.code.fypurduvoiceassistant.ml.Model;
+import com.facebook.login.Login;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.installations.Utils;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
@@ -123,7 +112,16 @@ public class MainScreenMessage extends AppCompatActivity  {
     MediaRecorder mediaRecorder;
     String filename;
     MessageSender messageSender;
-    Socket socket;
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+
+    public MainScreenMessage(NavigationView navigationView) {
+        this.navigationView = navigationView;
+    }
+    public MainScreenMessage() {
+
+    }
 
     private void RequestPermissions() {
 
@@ -132,7 +130,7 @@ public class MainScreenMessage extends AppCompatActivity  {
 
     private void animatelogo(){
 
-        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        RotateAnimation rotate = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(10000);
         rotate.setRepeatCount(Animation.INFINITE);
         rotate.setInterpolator(new LinearInterpolator());
@@ -209,27 +207,33 @@ public class MainScreenMessage extends AppCompatActivity  {
             }
         });
 
-
-
-
-
-
-
     }
 
+                    @Override
+                    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-
-
-
-
-
-
+                        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+                            return true;
+                        }
+                        return super.onOptionsItemSelected(item);
+                    }
 
 
                     @Override
                     protected void onCreate (Bundle savedInstanceState) {
                         super.onCreate(savedInstanceState);
                         setContentView(R.layout.activity_main_screen_message);
+
+                       navigationView=findViewById(R.id.navmenu);
+
+                        drawerLayout = findViewById(R.id.my_drawer_layout);
+                        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+                        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+                        actionBarDrawerToggle.syncState();
+                        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
                         if (android.os.Build.VERSION.SDK_INT > 9)
                         {
                             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -237,14 +241,48 @@ public class MainScreenMessage extends AppCompatActivity  {
                         }
 
                         animatelogo();
-                        logout = findViewById(R.id.logout);
                         button_to_command_list = findViewById(R.id.button_to_command_list);
                         mic_button = findViewById(R.id.mic_button);
                         stop_button = findViewById(R.id.stop_button);
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainScreenMessage.this);
                         String username = preferences.getString("Username", "");
 
+                        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+                            @Override
+                            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                                int id=item.getItemId();
+                                if (id==R.id.nav_logout){
+                                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                    String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
+                                    Map<String, Object> user = new HashMap<>();
+                                    user.put("Email", username);
+                                    user.put("TimeLogout", currentTime);
+                                    db.collection("UserLogout")
+                                            .add(user)
+                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                                @Override
+                                                public void onSuccess(DocumentReference documentReference) {
+                                                    Log.d("123", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Log.w("456", "Error adding document", e);
+                                                }
+                                            });
 
+                                    FirebaseAuth.getInstance().signOut();
+                                    Intent intent=new Intent(MainScreenMessage.this, LoginPage.class);
+                                    startActivity(intent);
+                                }
+                                else if (id==R.id.nav_account){
+                                    Intent intent=new Intent(MainScreenMessage.this, ProfilePicActivity.class);
+                                    startActivity(intent);
+                                }
+                                return true;
+                            }
+                        });
                         button_to_command_list.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -254,37 +292,6 @@ public class MainScreenMessage extends AppCompatActivity  {
                         });
 
 
-                        logout.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                FirebaseFirestore db = FirebaseFirestore.getInstance();
-                                String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-                                Map<String, Object> user = new HashMap<>();
-                                user.put("Email", username);
-                                user.put("TimeLogout", currentTime);
-
-
-                                db.collection("UserLogout")
-                                        .add(user)
-                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                            @Override
-                                            public void onSuccess(DocumentReference documentReference) {
-                                                Log.d("123", "DocumentSnapshot added with ID: " + documentReference.getId());
-                                            }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.w("456", "Error adding document", e);
-                                            }
-                                        });
-
-                                FirebaseAuth.getInstance().signOut();
-                                Intent intent = new Intent(MainScreenMessage.this, LoginPage.class);
-                                startActivity(intent);
-
-                            }
-                        });
 
 
                         mic_button.setOnClickListener(new View.OnClickListener() {
@@ -308,6 +315,13 @@ public class MainScreenMessage extends AppCompatActivity  {
                             }
 
                         });
-                    }}
+
+
+
+                    }
+
+
+
+}
 
 
