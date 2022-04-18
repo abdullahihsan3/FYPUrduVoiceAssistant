@@ -31,13 +31,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYPUrduVoiceAssistant">
         <activity
+            android:name=".RecyclerViewResponseView"
+            android:exported="false" />
+        <activity
             android:name=".ProfilePicActivity"
             android:exported="false" />
         <activity
             android:name=".CallContact"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewListActivity"
+            android:name=".RecyclerViewListActivityAdapter"
             android:exported="false" />
         <activity
             android:name=".Youtube"

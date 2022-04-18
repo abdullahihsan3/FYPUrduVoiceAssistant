@@ -41,8 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         getSupportActionBar().hide();
         register=(Button)findViewById(R.id.getregistrationbutton);
-        firstname=(EditText) findViewById(R.id.getfirstname);
-        lastname=(EditText)findViewById(R.id.getlastname);
         email=(EditText)findViewById(R.id.getemail);
         password=(EditText)findViewById(R.id.getpassword);
 

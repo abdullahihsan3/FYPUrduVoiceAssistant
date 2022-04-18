@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import static android.Manifest.permission.RECORD_AUDIO;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -30,7 +31,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.facebook.login.Login;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
@@ -41,11 +41,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -54,47 +51,51 @@ import java.util.Map;
 import java.util.UUID;
 import java.io.*;
 import java.net.*;
-class MessageSender extends AsyncTask<String,Void,Void>{
+class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
 
     Socket socket;
-   // DataOutputStream dataOutputStream;
-    PrintWriter printWriter;
+    Context ctx;
+    public class Wrapper
+    {
+        public String filename_sent;
+        public String response_received;
+    }
 
     @Override
-    protected Void doInBackground(String... strings) {
+    protected Wrapper doInBackground(String... strings) {
         String filename=strings[0];
+        Wrapper w=new Wrapper();
         try {
-
-            InputStream inputStream = new FileInputStream(filename);
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] buffer = new byte[0xFFFF];
-            for (int len = inputStream.read(buffer); len != -1; len = inputStream.read(buffer)) {
-                os.write(buffer, 0, len);
-            }
-            byte[] audioBytes =  os.toByteArray();
-
-
-            System.out.println("Making Socket");
+            System.out.println(filename);
             socket=new Socket("34.131.143.93",3389);
-            if(socket.isConnected()){
-                System.out.println("Connected To Server");
-                printWriter=new PrintWriter(socket.getOutputStream());
-                printWriter.write(String.valueOf(audioBytes));
-                printWriter.flush();
-                printWriter.close();
-                socket.close();
-                Thread.sleep(5000);
-            }
-            else{
-                System.out.println("Not Connected To Server");
-            }
+            DataOutputStream dout=new DataOutputStream(socket.getOutputStream());
+            DataInputStream in = new DataInputStream(socket.getInputStream());
 
+            String msg=(String)in.readUTF();
+            System.out.println("Server: "+msg);
+            dout.writeUTF(filename);
 
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            String msg1=(String)in.readUTF();
+            System.out.println("Label from Server: "+msg1);
+
+            w.filename_sent=msg;
+            w.response_received=msg1;
+
+            dout.flush();
+            dout.close();
+            socket.close();
+            } catch (UnknownHostException unknownHostException) {
+            unknownHostException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
+        return w;
+    }
 
-        return null;
+    protected void onPostExecute(Wrapper w){
+        Intent intent=new Intent(ctx.getApplicationContext(),RecyclerViewResponseView.class);
+        intent.putExtra("response",w.response_received);
+        ctx.startActivity(intent);
     }
 
 
@@ -182,9 +183,9 @@ public class MainScreenMessage extends AppCompatActivity  {
         stop_button.setEnabled(false);
        // Toast.makeText(getApplicationContext(), "Audio Recorded Successfully", Toast.LENGTH_LONG).show();
 
-        String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
         StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        final StorageReference ref = storageReference.child("audio/" + UUID.randomUUID()+".wav");
+        String get_filename=UUID.randomUUID()+".wav";
+        final StorageReference ref = storageReference.child("audio/" + get_filename);
         Uri file = Uri.fromFile(new File(filename));
         ref.putFile(file).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -194,8 +195,8 @@ public class MainScreenMessage extends AppCompatActivity  {
                     public void onSuccess(Uri uri) {
                         final Uri downloadUrl = uri;
                         Toast.makeText(MainScreenMessage.this, "Download URL at " + downloadUrl.toString(), Toast.LENGTH_LONG).show();
-                               // messageSender=new MessageSender();
-                                //messageSender.doInBackground(filename);
+                               messageSender=new MessageSender();
+                               messageSender.doInBackground(get_filename);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -286,7 +287,7 @@ public class MainScreenMessage extends AppCompatActivity  {
                         button_to_command_list.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(MainScreenMessage.this, RecyclerViewListActivity.class);
+                                Intent intent = new Intent(MainScreenMessage.this, RecyclerViewListActivityAdapter.class);
                                 startActivity(intent);
                             }
                         });

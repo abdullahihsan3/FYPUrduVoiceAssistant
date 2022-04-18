@@ -46,23 +46,11 @@ public class LoginPage extends AppCompatActivity {
     TextView registrationintent;
     TextView forgotpassword;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private void animatelogo(){
-
-        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotate.setDuration(30000);
-        rotate.setRepeatCount(Animation.INFINITE);
-        rotate.setInterpolator(new LinearInterpolator());
-        ImageView image= (ImageView) findViewById(R.id.imageview_logo);
-        image.startAnimation(rotate);
-
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         getSupportActionBar().hide();
-        animatelogo();
         forgotpassword=findViewById(R.id.forgotpassword);
         mAuth = FirebaseAuth.getInstance();
         username=findViewById(R.id.username);
