@@ -26,7 +26,7 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
         setContentView(R.layout.activity_forgot_password);
         email_for_password = findViewById(R.id.email_for_password);
-        registation = findViewById(R.id.getregistrationbutton);
+        registation = findViewById(R.id.registation_button_for_forgot_password);
         registation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

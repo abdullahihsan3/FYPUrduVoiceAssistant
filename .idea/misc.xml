@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable-v24/edit_text_bg.xml" value="0.148" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable-v24/login_btn.xml" value="0.148" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable-v24/login_tab.xml" value="0.19" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable/border.xml" value="0.168" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable/rounded.xml" value="0.1315" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable/rounded2.xml" value="0.168" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/drawable/rounded_chat.xml" value="0.1305" />
-        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_airplane_mode.xml" value="0.136" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_airplane_mode.xml" value="0.2" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_alarm.xml" value="0.176" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_bluetooth.xml" value="0.176" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_brightness.xml" value="0.152" />
@@ -20,15 +22,15 @@
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_facebook.xml" value="0.152" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_flashlight.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_forgot_password.xml" value="0.176" />
-        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_login_page.xml" value="0.152" />
-        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_main_screen_message.xml" value="0.152" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_login_page.xml" value="0.2" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_main_screen_message.xml" value="0.2" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_map.xml" value="0.14356884057971014" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_mobile_data.xml" value="0.11286874732791792" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_music.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_profile_pic.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_recycler_view_list.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_recycler_view_response_view.xml" value="0.1" />
-        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_register.xml" value="0.136" />
+        <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_register.xml" value="0.2" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_reminder.xml" value="0.1" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_screenshot.xml" value="0.23229166666666667" />
         <entry key="..\:/Users/Abdullah Ihsan/AndroidStudioProjects/FYPUrduVoiceAssistant/app/src/main/res/layout/activity_sound.xml" value="0.23229166666666667" />

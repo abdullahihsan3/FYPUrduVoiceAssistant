@@ -28,8 +28,6 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "Register1212";
     Button register;
-    EditText firstname;
-    EditText lastname;
     EditText email;
     EditText password;
     FirebaseAuth mAuth;
@@ -53,8 +51,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Map<String, Object> user = new HashMap<>();
-                user.put("FirstName",firstname.getText().toString() );
-                user.put("LastName", lastname.getText().toString());
                 user.put("Email", email.getText().toString());
                 user.put("Password", password.getText().toString());
                 db.collection("UserInformation")

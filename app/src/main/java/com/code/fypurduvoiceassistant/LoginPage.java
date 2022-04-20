@@ -2,6 +2,7 @@ package com.code.fypurduvoiceassistant;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
@@ -51,6 +53,7 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         getSupportActionBar().hide();
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.black));
         forgotpassword=findViewById(R.id.forgotpassword);
         mAuth = FirebaseAuth.getInstance();
         username=findViewById(R.id.username);

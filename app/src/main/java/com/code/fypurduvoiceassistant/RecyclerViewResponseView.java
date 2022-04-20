@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class RecyclerViewResponseView extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_view_response_view);
         get_intent=getIntent();
         String response=get_intent.getStringExtra("response");
+        Toast.makeText(RecyclerViewResponseView.this,response,Toast.LENGTH_LONG).show();
         rv = findViewById(R.id.rv_response);
         ls = new ArrayList<ResponseClass>();
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());

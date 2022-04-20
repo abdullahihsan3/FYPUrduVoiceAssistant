@@ -54,13 +54,16 @@ import java.net.*;
 class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
 
     Socket socket;
-    Context ctx;
+    private Context mContext;
     public class Wrapper
     {
         public String filename_sent;
         public String response_received;
     }
-
+    public MessageSender(Context context)
+    {
+        mContext=context;
+    }
     @Override
     protected Wrapper doInBackground(String... strings) {
         String filename=strings[0];
@@ -82,8 +85,8 @@ class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
             w.response_received=msg1;
 
             dout.flush();
-            dout.close();
-            socket.close();
+          //  dout.close();
+          //  socket.close();
             } catch (UnknownHostException unknownHostException) {
             unknownHostException.printStackTrace();
         } catch (IOException ioException) {
@@ -93,9 +96,10 @@ class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
     }
 
     protected void onPostExecute(Wrapper w){
-        Intent intent=new Intent(ctx.getApplicationContext(),RecyclerViewResponseView.class);
+
+        Intent intent=new Intent(mContext,RecyclerViewResponseView.class);
         intent.putExtra("response",w.response_received);
-        ctx.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
 
@@ -195,8 +199,9 @@ public class MainScreenMessage extends AppCompatActivity  {
                     public void onSuccess(Uri uri) {
                         final Uri downloadUrl = uri;
                         Toast.makeText(MainScreenMessage.this, "Download URL at " + downloadUrl.toString(), Toast.LENGTH_LONG).show();
-                               messageSender=new MessageSender();
-                               messageSender.doInBackground(get_filename);
+                               messageSender=new MessageSender(getApplicationContext());
+                        MessageSender.Wrapper wrapper=messageSender.doInBackground(get_filename);
+                                messageSender.onPostExecute(wrapper);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -227,6 +232,7 @@ public class MainScreenMessage extends AppCompatActivity  {
 
                        navigationView=findViewById(R.id.navmenu);
 
+
                         drawerLayout = findViewById(R.id.my_drawer_layout);
                         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
                         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -247,7 +253,7 @@ public class MainScreenMessage extends AppCompatActivity  {
                         stop_button = findViewById(R.id.stop_button);
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainScreenMessage.this);
                         String username = preferences.getString("Username", "");
-
+                        stop_button.setEnabled(false);
                         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                             @Override
                             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

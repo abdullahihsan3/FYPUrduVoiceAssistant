@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
@@ -21,7 +22,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class SplashScreen extends AppCompatActivity {
     private final int SPLASH_DELAY=2500;
     private ImageView imageView;
-    ImageView people;
     ImageView limage;
     ImageView lname;
     FirebaseAuth mAuth;
@@ -32,25 +32,23 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         getSupportActionBar().hide();
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         top= AnimationUtils.loadAnimation(this,R.anim.top_animation);
         mid= AnimationUtils.loadAnimation(this,R.anim.middle_animation);
         bottom= AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        people = findViewById(R.id.people);
         limage = findViewById(R.id.logo_image);
         lname = findViewById(R.id.lname);
 
         //set animations
 
 
-        people.setAnimation(top);
         limage.setAnimation(mid);
         lname.setAnimation(bottom);
 
         getWindow().setBackgroundDrawable(null);
         initializeview();
 
-        animatelogo();
         gotoMainActivity();
 
 
@@ -61,17 +59,6 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
-    private void animatelogo(){
-
-        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotate.setDuration(30000);
-        rotate.setRepeatCount(Animation.INFINITE);
-        rotate.setInterpolator(new LinearInterpolator());
-        ImageView image= (ImageView) findViewById(R.id.people);
-        image.startAnimation(rotate);
-
-
-    }
 
     private void gotoMainActivity(){
         mAuth = FirebaseAuth.getInstance();
