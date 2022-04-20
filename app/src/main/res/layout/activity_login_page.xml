@@ -110,6 +110,7 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/password"
             app:layout_constraintHorizontal_bias="1"

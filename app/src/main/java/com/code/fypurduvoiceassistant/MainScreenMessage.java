@@ -262,7 +262,6 @@ public class MainScreenMessage extends AppCompatActivity  {
                                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                                     String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                                     Map<String, Object> user = new HashMap<>();
-                                    user.put("Email", username);
                                     user.put("TimeLogout", currentTime);
                                     db.collection("UserLogout")
                                             .add(user)
@@ -280,11 +279,15 @@ public class MainScreenMessage extends AppCompatActivity  {
                                             });
 
                                     FirebaseAuth.getInstance().signOut();
-                                    Intent intent=new Intent(MainScreenMessage.this, LoginPage.class);
+                                    Intent intent=new Intent(getApplicationContext(), LoginPage.class);
                                     startActivity(intent);
                                 }
-                                else if (id==R.id.nav_account){
-                                    Intent intent=new Intent(MainScreenMessage.this, ProfilePicActivity.class);
+                                 if (id==R.id.profile){
+                                    Intent intent=new Intent(getApplicationContext(), ProfilePicActivity.class);
+                                    startActivity(intent);
+                                }
+                                 if (id==R.id.homepage){
+                                    Intent intent=new Intent(getApplicationContext(), MainScreenMessage.class);
                                     startActivity(intent);
                                 }
                                 return true;
