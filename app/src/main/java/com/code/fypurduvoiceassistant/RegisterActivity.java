@@ -3,12 +3,20 @@ package com.code.fypurduvoiceassistant;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,8 +27,16 @@ import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +46,78 @@ public class RegisterActivity extends AppCompatActivity {
     Button register;
     EditText email;
     EditText password;
+    EditText firstname;
+    EditText lastname;
     FirebaseAuth mAuth;
+    ImageView profile_image;
+    DatabaseReference mDatabaseRef;
+    StorageReference mStorageRef;
+    Uri selectedImageUri_upload;
+    ProgressBar simpleProgressBar;
+    StorageTask muploadtask;
+
+
+    private String getFileExtension(Uri uri){
+        ContentResolver contentResolver=getContentResolver();
+        MimeTypeMap mime=MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
+    private void uploadfile(Uri uri){
+        if(uri!=null){
+            StorageReference fileReference=mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension(uri));
+            muploadtask=fileReference.putFile(uri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    final String downloadUrl = uri.toString();
+                                    Handler handler=new Handler();
+                                    handler.postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            simpleProgressBar.setProgress(0);
+                                        }
+                                    },5000);
+
+                                    Toast.makeText(RegisterActivity.this,"Upload Successful",Toast.LENGTH_LONG).show();
+
+                                    Upload upload = new Upload(downloadUrl,email.getText().toString(),firstname.getText().toString(),lastname.getText().toString());
+                                    String uploadId = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(uploadId).setValue(upload);
+                                   email.setText("");
+                                   password.setText("");
+
+
+
+
+                                }
+                            });
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(RegisterActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                            double progress=(100.0*snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
+                            simpleProgressBar.setProgress((int) progress);
+
+                        }
+                    });
+
+        }
+        else{
+            Toast.makeText(RegisterActivity.this,"No File Selected",Toast.LENGTH_LONG).show();
+        }
+    }
+
 
 
     @Override
@@ -41,12 +128,16 @@ public class RegisterActivity extends AppCompatActivity {
         register=(Button)findViewById(R.id.getregistrationbutton);
         email=(EditText)findViewById(R.id.getemail);
         password=(EditText)findViewById(R.id.getpassword);
-
-
-
-
+        firstname=(EditText) findViewById(R.id.getfirstname);
+        lastname=(EditText) findViewById(R.id.getlastname);
         mAuth = FirebaseAuth.getInstance();
+        profile_image=findViewById(R.id.profile_image_of_register);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        simpleProgressBar=findViewById(R.id.simpleProgressBar);
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("uploads");
+        mStorageRef= FirebaseStorage.getInstance().getReference("uploads");
+
+
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +186,14 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
 
-
+                profile_image.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                        photoPickerIntent.setType("image/*");
+                        startActivityForResult(photoPickerIntent, 1);
+                    }
+                });
 
 
 
@@ -106,5 +204,32 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+
+
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+
+                    Picasso.with(this).load(selectedImageUri).into(profile_image);
+                    selectedImageUri_upload=selectedImageUri;
+
+                    if(muploadtask!=null && muploadtask.isInProgress()){
+                        Toast.makeText(RegisterActivity.this,"File Already Uploading Please Wait",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        uploadfile(selectedImageUri_upload);
+                    }
+
+                }
+            }
+        }
+    }
+
 }

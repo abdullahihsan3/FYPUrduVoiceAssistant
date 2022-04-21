@@ -69,6 +69,10 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
+        SharedPreferences.Editor editor = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE).edit();
+        editor.putString("UserName", username.getText().toString());
+        editor.apply();
+
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override

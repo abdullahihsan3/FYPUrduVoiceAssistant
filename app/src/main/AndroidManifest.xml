@@ -31,6 +31,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYPUrduVoiceAssistant">
         <activity
+            android:name=".RecyclerViewListMenu"
+            android:exported="false" />
+        <activity
             android:name=".RecyclerViewResponseView"
             android:exported="false" />
         <activity

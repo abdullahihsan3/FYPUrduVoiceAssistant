@@ -35,6 +35,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageview_logo2"
         app:layout_constraintVertical_bias="0.311" />
 
+    <ProgressBar
+        android:id="@+id/simpleProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/imageview_logo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
@@ -49,94 +59,96 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" >
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/woman_working"
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_of_register"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_circular_image"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="5dp"
             app:layout_constraintBottom_toTopOf="@+id/getfirstname"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"></ImageView>
-
-
-
-        <EditText
-            android:id="@+id/getfirstname"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintWidth_percent=".8"
-            app:layout_constraintVertical_bias=".25"
-            app:layout_constraintHorizontal_bias=".5"
-            android:hint="First Name...."
-            android:inputType="text"
-            android:background="@drawable/edit_text_bg"
-            android:paddingTop="10dp"
-            android:paddingLeft="20dp"
-            android:paddingBottom="10dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="MissingConstraints" />
 
         <EditText
             android:id="@+id/getlastname"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
             android:hint="Last name...."
             android:inputType="text"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
-            android:background="@drawable/edit_text_bg"
-            app:layout_constraintVertical_bias="0"
             android:paddingBottom="10dp"
-            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/getfirstname"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintWidth_percent=".8" />
+
+        <EditText
+            android:id="@+id/getfirstname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_bg"
+            android:hint="First Name...."
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/getfirstname"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.315"
             app:layout_constraintWidth_percent=".8" />
 
         <EditText
             android:id="@+id/getemail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
             android:hint="Email...."
             android:inputType="textEmailAddress"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
-            android:background="@drawable/edit_text_bg"
-            app:layout_constraintVertical_bias="0"
             android:paddingBottom="10dp"
-            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toBottomOf="@+id/getlastname"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent=".8" />
 
         <EditText
             android:id="@+id/getpassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_bg"
             android:hint="Password...."
             android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:paddingTop="10dp"
-            android:background="@drawable/edit_text_bg"
-            app:layout_constraintVertical_bias="0"
             android:paddingBottom="10dp"
-            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toBottomOf="@+id/getemail"
+            app:layout_constraintVertical_bias="0.0"
             app:layout_constraintWidth_percent=".8" />
 
         <androidx.appcompat.widget.AppCompatButton

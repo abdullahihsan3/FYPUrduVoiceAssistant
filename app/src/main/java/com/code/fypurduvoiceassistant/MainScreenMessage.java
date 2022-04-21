@@ -44,6 +44,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -52,7 +53,7 @@ import java.util.UUID;
 import java.io.*;
 import java.net.*;
 class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
-
+    int count=0;
     Socket socket;
     private Context mContext;
     public class Wrapper
@@ -99,7 +100,10 @@ class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
 
         Intent intent=new Intent(mContext,RecyclerViewResponseView.class);
         intent.putExtra("response",w.response_received);
+        intent.putExtra("count",count);
+        count++;
         mContext.startActivity(intent);
+
     }
 
 
@@ -280,23 +284,28 @@ public class MainScreenMessage extends AppCompatActivity  {
 
                                     FirebaseAuth.getInstance().signOut();
                                     Intent intent=new Intent(getApplicationContext(), LoginPage.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                 }
                                  if (id==R.id.profile){
                                     Intent intent=new Intent(getApplicationContext(), ProfilePicActivity.class);
+                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                 }
                                  if (id==R.id.homepage){
                                     Intent intent=new Intent(getApplicationContext(), MainScreenMessage.class);
+                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(intent);
                                 }
                                 return true;
                             }
                         });
+
+
                         button_to_command_list.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent intent = new Intent(MainScreenMessage.this, RecyclerViewListActivityAdapter.class);
+                                Intent intent = new Intent(MainScreenMessage.this, RecyclerViewListMenu.class);
                                 startActivity(intent);
                             }
                         });

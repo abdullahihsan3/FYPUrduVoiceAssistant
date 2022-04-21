@@ -3,43 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <ImageView
-        android:id="@+id/image_person"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="16dp"
+        android:id="@+id/imageView12"
+        android:layout_width="330dp"
+        android:layout_height="190dp"
+        android:background="@drawable/rounded_background_recycler"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/response"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"></ImageView>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_to_show_va"
+        android:layout_width="76dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/rounded_circular_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/response_of_va"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145"></de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
-        android:id="@+id/response"
-        android:layout_width="200dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
+        android:id="@+id/response_of_va"
+        android:layout_width="189dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="43dp"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#1F1C39"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/time_of_va"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"></TextView>
 
     <TextView
-        android:id="@+id/time_response"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="23dp"
+        android:id="@+id/time_of_va"
+        android:layout_width="221dp"
+        android:layout_height="32dp"
+        android:textAlignment="center"
+        android:textColor="#1F1C39"
+        android:textSize="13dp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/response"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"></TextView>
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:layout_constraintVertical_bias="0.898"></TextView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

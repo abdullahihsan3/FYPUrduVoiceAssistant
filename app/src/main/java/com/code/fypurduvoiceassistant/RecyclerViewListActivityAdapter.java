@@ -70,9 +70,9 @@ public class RecyclerViewListActivityAdapter extends RecyclerView.Adapter<Recycl
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            person=itemView.findViewById(R.id.image_person);
-            time=itemView.findViewById(R.id.time_response);
-            response=itemView.findViewById(R.id.response);
+            person=itemView.findViewById(R.id.image_to_show_va);
+            time=itemView.findViewById(R.id.time_of_va);
+            response=itemView.findViewById(R.id.response_of_va);
 
         }
 
