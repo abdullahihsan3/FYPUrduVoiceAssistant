@@ -2,6 +2,10 @@ package com.code.fypurduvoiceassistant;
 
 public class Upload {
 
+
+    public Upload() {
+
+    }
     public Upload(String mEmail, String mImageUrl,String mFirstName,String mLastName) {
         this.mEmail = mEmail;
         this.mImageUrl = mImageUrl;
