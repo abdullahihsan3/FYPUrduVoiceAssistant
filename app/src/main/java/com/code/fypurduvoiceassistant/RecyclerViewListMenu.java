@@ -47,7 +47,7 @@ public class RecyclerViewListMenu extends AppCompatActivity {
 
 
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(rv.getLayoutParams());
-        marginLayoutParams.setMargins(0, 20, 0, 20);
+        marginLayoutParams.setMargins(0, 20, 0, 60);
         rv.setLayoutParams(marginLayoutParams);
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 1);

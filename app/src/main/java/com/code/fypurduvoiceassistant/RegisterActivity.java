@@ -176,26 +176,30 @@ public class RegisterActivity extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        FirebaseUser user=mAuth.getCurrentUser();
-                        user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                Toast.makeText(RegisterActivity.this,"Email Sent To User's Email",Toast.LENGTH_LONG).show();
-                                Intent intent=new Intent(RegisterActivity.this,LoginPage.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                firstname.setText("");
-                                lastname.setText("");
-                                email.setText("");
-                                lastname.setText("");
-                                startActivity(intent);
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(RegisterActivity.this,"Unable To Send Email",Toast.LENGTH_LONG).show();
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        if (task.isSuccessful()) {
+                            user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Toast.makeText(RegisterActivity.this, "Email Sent To User's Email", Toast.LENGTH_LONG).show();
+                                    Intent intent = new Intent(RegisterActivity.this, LoginPage.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    firstname.setText("");
+                                    lastname.setText("");
+                                    email.setText("");
+                                    lastname.setText("");
+                                    startActivity(intent);
+                                }
 
-                            }
-                        });
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(RegisterActivity.this, "Unable To Send Email", Toast.LENGTH_LONG).show();
+
+                                }
+                            });
+
+                        }
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -205,10 +209,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
 
-                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-                SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                myEdit.putString("name", email.getText().toString());
-                myEdit.commit();
 
 
 

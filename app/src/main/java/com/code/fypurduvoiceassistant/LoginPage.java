@@ -71,8 +71,6 @@ public class LoginPage extends AppCompatActivity {
 
 
 
-
-
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +90,15 @@ public class LoginPage extends AppCompatActivity {
 
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+
+                                    String email=mAuth.getCurrentUser().getEmail();
+                                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                    myEdit.putString("name", email);
+                                    myEdit.commit();
+
+
+
                                     Intent intent = new Intent(LoginPage.this, MainScreenMessage.class);
                                     startActivity(intent);
                                 }

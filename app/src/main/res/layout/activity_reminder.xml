@@ -14,15 +14,12 @@
         android:layout_height="152dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="659dp"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></ImageView>
-
+        app:layout_constraintVertical_bias="0.021"></ImageView>
 
     <ImageView
         android:id="@+id/imageView9"
@@ -32,10 +29,10 @@
         android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.121"></ImageView>
+        app:layout_constraintVertical_bias="0.138"></ImageView>
 
     <ImageView
         android:id="@+id/imageView5"
@@ -44,9 +41,10 @@
         android:src="@drawable/rounded"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.161"></ImageView>
+        app:layout_constraintVertical_bias="0.258"></ImageView>
 
     <ImageView
         android:id="@+id/switch4"
@@ -55,10 +53,10 @@
         android:src="@drawable/tick"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="0.889"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintVertical_bias="0.391" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -68,24 +66,19 @@
         android:src="@drawable/reminder"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/switch4"
-        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.573"></ImageView>
+        app:layout_constraintTop_toTopOf="@+id/imageView5"></ImageView>
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="338dp"
         android:layout_height="57dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="39dp"
         android:src="@drawable/rounded_chat"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0"></ImageView>
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"></ImageView>
 
 
     <TextView
@@ -100,8 +93,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="1.0"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/imageView9"></TextView>
 
     <EditText
 
@@ -116,7 +108,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"></EditText>
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"></EditText>
 </androidx.constraintlayout.widget.ConstraintLayout>
