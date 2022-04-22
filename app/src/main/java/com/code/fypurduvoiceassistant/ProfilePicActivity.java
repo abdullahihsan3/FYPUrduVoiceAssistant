@@ -139,16 +139,22 @@ public class ProfilePicActivity extends AppCompatActivity {
                     FirebaseAuth.getInstance().signOut();
                     Intent intent=new Intent(getApplicationContext(), LoginPage.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
                 if (id==R.id.profile){
                     Intent intent=new Intent(getApplicationContext(), ProfilePicActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
                 if (id==R.id.homepage){
                     Intent intent=new Intent(getApplicationContext(), MainScreenMessage.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 }
                 return true;

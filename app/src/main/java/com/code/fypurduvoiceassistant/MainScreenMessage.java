@@ -80,7 +80,10 @@ class MessageSender extends AsyncTask<String,Void, MessageSender.Wrapper>{
             dout.writeUTF(filename);
 
             String msg1=(String)in.readUTF();
-            System.out.println("Label from Server: "+msg1);
+            System.out.println("(Google) Label from Server: "+msg1);
+
+            String msg2=(String)in.readUTF();
+            System.out.println("(Model) Label from Server: "+msg2);
 
             w.filename_sent=msg;
             w.response_received=msg1;
@@ -285,16 +288,19 @@ public class MainScreenMessage extends AppCompatActivity  {
                                     FirebaseAuth.getInstance().signOut();
                                     Intent intent=new Intent(getApplicationContext(), LoginPage.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 }
                                  if (id==R.id.profile){
                                     Intent intent=new Intent(getApplicationContext(), ProfilePicActivity.class);
                                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 }
                                  if (id==R.id.homepage){
                                     Intent intent=new Intent(getApplicationContext(), MainScreenMessage.class);
                                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 }
                                 return true;
