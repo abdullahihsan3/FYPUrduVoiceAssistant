@@ -33,16 +33,18 @@ python3 final_server.py
 
 Login Screen
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/fypurduvoiceassistant.appspot.com/o/uploads%2F1.jpeg?alt=media&token=d9067fe3-9fae-40fb-9da2-158ddcd6f830)
+![1](https://user-images.githubusercontent.com/68693065/164817271-338b8808-a47b-4eb5-889b-4fe47c8c84b9.jpeg)
 
 Register Screen
 
+![2](https://user-images.githubusercontent.com/68693065/164817282-f718d005-f8fe-4b51-b7dd-d813f1acb836.jpeg)
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/fypurduvoiceassistant.appspot.com/o/uploads%2F2.jpeg?alt=media&token=c08a0b3d-529e-4bfc-8214-0cb3b4bc5700)
 
 ## Main Screen
 
-![alt text](https://firebasestorage.googleapis.com/v0/b/fypurduvoiceassistant.appspot.com/o/uploads%2F3.png?alt=media&token=ba4c83d7-dded-4ba8-8927-fef085529b91)
+![3](https://user-images.githubusercontent.com/68693065/164817291-908f1637-fb31-432e-874c-0c66e5557d8b.png)
+
+
 
 To perform the task firstly click on the Microphone icon and start recording.
 Once the recording has started you may choose any of the commands from the list below:
