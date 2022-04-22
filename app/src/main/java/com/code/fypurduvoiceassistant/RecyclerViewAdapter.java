@@ -242,8 +242,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
             else if(getLayoutPosition()==20){
 
-                db("Profile");
-                Intent send_intent=new Intent(v.getContext(),ProfilePicActivity.class);
+                db("Brightness");
+
+                Intent send_intent=new Intent(v.getContext(),Brightness.class);
                 c.startActivity(send_intent);
             }
 

@@ -43,6 +43,7 @@ public class RecyclerViewListMenu extends AppCompatActivity {
         ls.add(new ImageClass(ResourcesCompat.getDrawable(getResources(), R.drawable.weather, null),"Weather","Show Weather","1"));
         ls.add(new ImageClass(ResourcesCompat.getDrawable(getResources(), R.drawable.calculatoricon, null),"Calculation","Show Calculator","1"));
         ls.add(new ImageClass(ResourcesCompat.getDrawable(getResources(), R.drawable.call, null),"CallContact","Call A Contact","1"));
+        ls.add(new ImageClass(ResourcesCompat.getDrawable(getResources(), R.drawable.brightness, null),"Brightness","Change Brightness Settings","1"));
 
 
         ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(rv.getLayoutParams());
